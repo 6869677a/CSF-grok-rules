@@ -17,3 +17,6 @@
 
 #Blocked TCP In
 %{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host_target} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{DATA} Firewall: %{DATA} %{DATA} IN=%{DATA:in_iface} OUT= MAC=%{DATA:mac} SRC=%{IP:src_ip} DST=%{IP:dst_ip} LEN=%{BASE10NUM} TOS=%{DATA} PREC=%{DATA} TTL=%{BASE10NUM} ID=%{BASE10NUM:id} PROTO=TCP SPT=%{BASE10NUM:s_port} DPT=%{BASE10NUM:d_port} WINDOW=%{BASE10NUM:window} RES=%{DATA} %{DATA:handshake} URGP=%{BASE10NUM}
+
+#Port Flood
+%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host_target} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{DATA} Firewall: %{DATA} %{DATA} IN=%{DATA:in_iface} OUT= MAC=%{DATA:mac} SRC=%{IP:src_ip} DST=%{IP:dst_ip} LEN=%{BASE10NUM} TOS=%{DATA} PREC=%{DATA} TTL=%{BASE10NUM} ID=%{BASE10NUM:id} %{DATA} PROTO=TCP SPT=%{BASE10NUM:s_port} DPT=%{BASE10NUM:d_port} WINDOW=%{BASE10NUM:window} RES=%{DATA} %{DATA:handshake} URGP=%{BASE10NUM}
