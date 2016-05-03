@@ -1,0 +1,19 @@
+ ________              __     ___________.__.__   __                       
+ /  _____/______  ____ |  | __ \_   _____/|__|  |_/  |_  ___________  ______
+/   \  __\_  __ \/  _ \|  |/ /  |    __)  |  |  |\   __\/ __ \_  __ \/  ___/
+\    \_\  \  | \(  <_> )    <   |     \   |  |  |_|  | \  ___/|  | \/\___ \ 
+ \______  /__|   \____/|__|_ \  \___  /   |__|____/__|  \___  >__|  /____  >
+        ||                  \/      \/                      \/           ||
+        ||              Gathered & Compiled by Higinio Ochoa             ||
+        [_________________________________________________________________]
+        
+## This is constently elvolving so sorry if not ALL functions are covered.  
+    
+        
+##CSF Firewall
+        
+#Blocked UDP In
+%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host_target} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{DATA} Firewall: %{DATA} %{DATA} IN=%{DATA:in_iface} OUT= MAC=%{DATA:mac} SRC=%{IP:src_ip} DST=%{IP:dst_ip} LEN=%{BASE10NUM} TOS=%{DATA} PREC=%{DATA} TTL=%{BASE10NUM} ID=%{BASE10NUM:id} PROTO=UDP SPT=%{BASE10NUM:s_port} DPT=%{BASE10NUM:d_port} LEN=%{BASE10NUM}
+
+#Blocked TCP In
+%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host_target} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{DATA} Firewall: %{DATA} %{DATA} IN=%{DATA:in_iface} OUT= MAC=%{DATA:mac} SRC=%{IP:src_ip} DST=%{IP:dst_ip} LEN=%{BASE10NUM} TOS=%{DATA} PREC=%{DATA} TTL=%{BASE10NUM} ID=%{BASE10NUM:id} PROTO=TCP SPT=%{BASE10NUM:s_port} DPT=%{BASE10NUM:d_port} WINDOW=%{BASE10NUM:window} RES=%{DATA} %{DATA:handshake} URGP=%{BASE10NUM}
